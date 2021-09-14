@@ -607,20 +607,20 @@
     self.playAtActualSpeed = NO;
     _originMoiveName = [JPVideoUtil fileNameForDocumentMovie];
 #if TARGET_IPHONE_SIMULATOR
-    __weak typeof(self) weakSelf = self;
-    [JPVideoUtil newMoviewUrlWithVideoUrl:self.recordInfo.videoSource.firstObject.videoUrl audioTracks:self.recordInfo.videoComposition allAudioParams:self.recordInfo.allAudioParams  completion:^(JPVideoMergeStatus status, NSURL *url) {
-        if (url != nil) {
-            ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-            [library saveVideo:url toAlbum:@"未来拍客" completion:^(NSURL *assetURL, NSError *error){
-                weakSelf.savedAssetUrl = assetURL;
-                completion(url);
-            }failure:^(NSError *error){
-                completion(nil);
-            }];
-        }else{
-            completion(nil);
-        }
-    }];
+//    __weak typeof(self) weakSelf = self;
+//    [JPVideoUtil newMoviewUrlWithVideoUrl:self.recordInfo.videoSource.firstObject.videoUrl audioTracks:self.recordInfo.videoComposition allAudioParams:self.recordInfo.allAudioParams  completion:^(JPVideoMergeStatus status, NSURL *url) {
+//        if (url != nil) {
+//            ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+//            [library saveVideo:url toAlbum:@"新建相册" completion:^(NSURL *assetURL, NSError *error){
+//                weakSelf.savedAssetUrl = assetURL;
+//                completion(url);
+//            }failure:^(NSError *error){
+//                completion(nil);
+//            }];
+//        }else{
+//            completion(nil);
+//        }
+//    }];
 #else
     CGSize reallySize = _recordInfo.videoSize;
     CGSize fillSize = _recordInfo.videoSize;
@@ -647,7 +647,7 @@
         [JPVideoUtil newMoviewUrlWithVideoUrl:[NSURL fileURLWithPath:[NSHomeDirectory() stringByAppendingPathComponent:weakSelf.originMoiveName]]  audioTracks:weakSelf.recordInfo.composition allAudioParams:weakSelf.recordInfo.allAudioParams  completion:^(JPVideoMergeStatus status, NSURL *url) {
             if (url != nil) {
                 ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-                [library saveVideo:url toAlbum:@"未来拍客" completion:^(NSURL *assetURL, NSError *error){
+                [library saveVideo:url toAlbum:@"新建相册" completion:^(NSURL *assetURL, NSError *error){
                     weakSelf.savedAssetUrl = assetURL;
                     completion(url);
                 }failure:^(NSError *error){

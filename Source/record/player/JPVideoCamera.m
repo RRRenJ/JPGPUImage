@@ -210,7 +210,7 @@
     [self.originMovieWriter finishRecordingWithCompletionHandler:^{
           weakSelf.originMovieWriter = nil;
           ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-          [library saveVideo:[NSURL fileURLWithPath:[NSHomeDirectory() stringByAppendingPathComponent:weakSelf.originMoveName]] toAlbum:@"未来拍客" completion:nil failure:nil];
+          [library saveVideo:[NSURL fileURLWithPath:[NSHomeDirectory() stringByAppendingPathComponent:weakSelf.originMoveName]] toAlbum:@"新建相册" completion:nil failure:nil];
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(weakSelf.originMoveName, weakSelf.originMoveName);
         });
