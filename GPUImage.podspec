@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name     = 'JPGPUImage'
-  s.version  = '0.0.3'
+  s.name     = 'GPUImage'
+  s.version  = '0.0.4'
   s.license  = 'BSD'
   s.summary  = 'An open source iOS framework for GPU-based image and video processing.'
   s.homepage = 'https://github.com/RRRenJ/JPGPUImage'
