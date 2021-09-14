@@ -6,15 +6,14 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/RRRenJ/JPGPUImage'
   s.author   = { 'RRRenj' => '584201474@qq.com' }
   s.source   = { :git => 'https://github.com/RRRenJ/JPGPUImage.git', :tag => "#{s.version}" }
-  
-  s.public_header_files = "JPGPUImage/GPUImage.h"
-  s.source_files = 'JPGPUImage/**/*.{h,m}'
-  s.resources = 'JPGPUImage/Resources/*.png'
+
+  s.source_files = 'Source/**/*.{h,m}'
+  s.resources = 'Resources/*.png'
   s.requires_arc = true
   s.xcconfig = { 'CLANG_MODULES_AUTOLINK' => 'YES' }
   
   s.ios.deployment_target = '8.0'
-  s.ios.exclude_files = 'framework/Source/Mac'
+  s.ios.exclude_files = 'Source/Mac'
   s.ios.frameworks   = ['OpenGLES', 'CoreMedia', 'QuartzCore', 'AVFoundation']
   
   #s.osx.deployment_target = '10.6'
