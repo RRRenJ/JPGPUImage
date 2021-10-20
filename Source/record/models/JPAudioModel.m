@@ -8,6 +8,7 @@
 
 #import "JPAudioModel.h"
 #import "JPVideoUtil.h"
+#import "JPPublicConstant.h"
 @implementation JPAudioModel
 
 - (id)init {
@@ -65,12 +66,12 @@
 
 - (UIImage *)selectedThumImg
 {
-    return [UIImage imageNamed:_selectedThumImgName];
+    return [UIImage imageNamed:_selectedThumImgName inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
 }
 
 - (UIImage *)unSelectedThumImg
 {
-    return [UIImage imageNamed:_unSelectedThumImgName];
+    return [UIImage imageNamed:_selectedThumImgName inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
 }
 
 //+ (NSArray<JPAudioModel *> *)loadAllLocalMusic

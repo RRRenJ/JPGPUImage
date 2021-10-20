@@ -10,7 +10,7 @@
 #import "JPInkwellFilter.h"
 #import "GPUImagePicture.h"
 #import "JPVideoUtil.h"
-
+#import "JPPublicConstant.h"
 @implementation JPVideoTranstionsModel
 
 - (NSMutableDictionary *)configueDict
@@ -156,7 +156,9 @@
      
         GPUImagePicture *source = [[GPUImagePicture alloc] initWithImage:image];
         JPInkwellFilter *filter = [[JPInkwellFilter alloc] init];
-        GPUImagePicture * sourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"inkwellMap" ofType:@"png"]]];
+//        GPUImagePicture * sourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"inkwellMap" ofType:@"png"]]];
+        UIImage * sourceImage = [UIImage imageNamed:@"inkwellMap" inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
+        GPUImagePicture * sourcePicture1 = [[GPUImagePicture alloc] initWithImage:sourceImage];
         [sourcePicture1 addTarget:filter atTextureLocation:1];
         [filter forceProcessingAtSize:source.outputImageSize];
         [filter useNextFrameForImageCapture];

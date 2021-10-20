@@ -7,6 +7,7 @@
 //
 
 #import "JPFilterModel.h"
+#import "JPPublicConstant.h"
 
 @implementation JPFilterModel
 //+ (NSArray<JPFilterModel *> *)loadAllFilterModel
@@ -183,7 +184,7 @@
 
 - (UIImage *)thumbImage
 {
-    return [UIImage imageNamed:_thumbImageName];
+    return [UIImage imageNamed:_thumbImageName inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
 }
 
 @end

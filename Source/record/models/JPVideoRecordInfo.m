@@ -734,7 +734,7 @@
         {
             endName = @"4to3fcp";
         }
-        NSString *endPath = [[NSBundle mainBundle] pathForResource:endName ofType:@"mov"];
+        NSString *endPath = [JP_Resource_bundle pathForResource:endName ofType:@"mov"];
         AVURLAsset *endAsset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:endPath] options:inputOptions];
         NSUInteger trackIndex = videoCount % 2;
         AVMutableCompositionTrack *currentTrack = tracks[trackIndex];

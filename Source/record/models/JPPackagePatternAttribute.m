@@ -57,7 +57,7 @@
 {
     if (_thumImageUrlName) {
         if (_thumImageUrlNameFromBundle) {
-            return [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:_thumImageUrlName];
+            return [JP_Resource_bundle.bundlePath stringByAppendingPathComponent:_thumImageUrlName];
         }else{
             return _thumImageUrlName;
         }
@@ -122,9 +122,11 @@
             {
                 title = @"1to1";
             }
-            NSString *imagePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@%@", title, model.originImageName] ofType:@"png"];
+//            NSString *imagePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@%@", title, model.originImageName] ofType:@"png"];
+            UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", title, model.originImageName] inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
             @autoreleasepool {
-                return [UIImage imageWithContentsOfFile:imagePath];
+//                return [UIImage imageWithContentsOfFile:imagePath];
+                return image;
             }
         }else if(model.patternType == JPPackagePatternTypePicture){
             @autoreleasepool {
@@ -138,13 +140,17 @@
                 }
             }else{
                 @autoreleasepool {
-                    return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:_originImageName ofType:@"png"]];
+                    UIImage * image = [UIImage imageNamed:_originImageName inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
+                    return image;
+//                    return [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:_originImageName ofType:@"png"]];
                 }
             }
         }else{
-            NSString *imagePath = [[NSBundle mainBundle] pathForResource:model.originImageName ofType:@"png"];
+            UIImage * image = [UIImage imageNamed:model.originImageName inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
+//            NSString *imagePath = [[NSBundle mainBundle] pathForResource:model.originImageName ofType:@"png"];
             @autoreleasepool {
-                return [UIImage imageWithContentsOfFile:imagePath];
+                return image;
+//                return [UIImage imageWithContentsOfFile:imagePath];
             }
         }
         return nil;
@@ -211,7 +217,8 @@
     NSString *filePath = nil;
     if (_thumPictureName) {
         if (_thumImageIfFromBundle) {
-            return [UIImage imageNamed:_thumPictureName];
+//            return [UIImage imageNamed:_thumPictureName];
+            return [UIImage imageNamed:_thumPictureName inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
         }else{
             filePath = [NSHomeDirectory() stringByAppendingPathComponent:_thumPictureName];
         }
@@ -260,7 +267,8 @@
     NSString *filePath = nil;
     if (_logoImageFilePath) {
         if (_logoImageIfFromBundle) {
-           return [UIImage imageNamed:_logoImageFilePath];
+//           return [UIImage imageNamed:_logoImageFilePath];
+            return [UIImage imageNamed:_logoImageFilePath inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
         }else{
             filePath = [NSHomeDirectory() stringByAppendingPathComponent:_logoImageFilePath];
         }
@@ -346,8 +354,10 @@
     while (number.length < 5) {
         number = [NSString stringWithFormat:@"0%@", number];
     }
-    NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@%@", _firstPNGName, number] ofType:@"png"];
-    return [UIImage imageWithContentsOfFile:path];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@%@", _firstPNGName, number] ofType:@"png"];
+//    return [UIImage imageWithContentsOfFile:path];
+    UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", _firstPNGName, number] inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
+    return image;
 }
 
 - (UIImage *)getlastImage
@@ -365,8 +375,10 @@
     while (number.length < 5) {
         number = [NSString stringWithFormat:@"0%@", number];
     }
-    NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@%@", _thumFirstPNGName, number] ofType:@"png"];
-    return [UIImage imageWithContentsOfFile:path];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@%@", _thumFirstPNGName, number] ofType:@"png"];
+//    return [UIImage imageWithContentsOfFile:path];
+    UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", _thumFirstPNGName, number] inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
+    return  image;
 }
 
 - (CGSize)gifImageSize

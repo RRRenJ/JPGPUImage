@@ -144,4 +144,6 @@ typedef NS_ENUM(NSInteger, JPPlayerState) {
 
 #define JP_WILL_CHANGE_FILTER_TYPE_NOTIFICATION @"JP_WILL_CHANGE_FILTER_TYPE_NOTIFICATION"
 
+#define JP_Resource_bundle [NSBundle bundleWithPath:[[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"JPResource.bundle"]]
+
 #endif /* JPPublicConstant_h */

@@ -4,6 +4,7 @@
 
 #import "GPUImageMosaicFilter.h"
 #import "GPUImagePicture.h"
+#import "JPPublicConstant.h"
 
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
 NSString *const kGPUImageMosaicFragmentShaderString = SHADER_STRING
@@ -176,7 +177,7 @@ NSString *const kGPUImageMosaicFragmentShaderString = SHADER_STRING
 -(void)setTileSet:(NSString *)tileSet
 {
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-    UIImage *img = [UIImage imageNamed:tileSet];
+    UIImage *img = [UIImage imageNamed:tileSet inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
 #else
     NSImage *img = [NSImage imageNamed:tileSet];
 #endif

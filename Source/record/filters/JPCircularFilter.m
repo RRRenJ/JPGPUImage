@@ -8,6 +8,7 @@
 
 #import "JPCircularFilter.h"
 #import "GPUImagePicture.h"
+#import "JPPublicConstant.h"
 NSString *const JPCircularFragmentShaderString = SHADER_STRING
 (
  precision highp float;
@@ -47,8 +48,9 @@ NSString *const JPCircularFragmentShaderString = SHADER_STRING
     if (self = [super initWithFragmentShaderFromString:JPCircularFragmentShaderString]) {
         inputCircularImageTextureUniform = [filterProgram uniformIndex:@"inputCircularImageTexture"];
         circularFrameUniform = [filterProgram uniformIndex:@"circularFrame"];
-        NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"circular" ofType:@"png"];
-        GPUImagePicture * picture = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:imagePath]];
+//        NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"circular" ofType:@"png"];
+        UIImage * image = [UIImage imageNamed:@"circular" inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
+        GPUImagePicture * picture = [[GPUImagePicture alloc] initWithImage:image];
         pictureBuffer = [picture framebufferForOutput];
         [pictureBuffer lock];
     }

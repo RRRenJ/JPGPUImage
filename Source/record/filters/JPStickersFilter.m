@@ -62,12 +62,14 @@ NSString *const JPPassThroughFragmentShader = SHADER_STRING
     if (self = [self init]) {
         _isCircular = isCircular;
         if (_isCircular == YES) {
-            NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"circular" ofType:@"png"];
-            GPUImagePicture * picture = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:imagePath]];
+//            NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"circular" ofType:@"png"];
+            UIImage * image = [UIImage imageNamed:@"circular" inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
+            GPUImagePicture * picture = [[GPUImagePicture alloc] initWithImage:image];
             _circularImagePicture = picture;
         }
-        NSString *forthImagePath = [[NSBundle mainBundle] pathForResource:@"powered-water-mask" ofType:@"png"];
-        _copiesImagePicture = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:forthImagePath]];
+//        NSString *forthImagePath = [[NSBundle mainBundle] pathForResource:@"powered-water-mask" ofType:@"png"];
+        UIImage * forthImage = [UIImage imageNamed:@"powered-water-mask" inBundle:JP_Resource_bundle compatibleWithTraitCollection:nil];
+        _copiesImagePicture = [[GPUImagePicture alloc] initWithImage:forthImage];
     }
     return self;
 }
