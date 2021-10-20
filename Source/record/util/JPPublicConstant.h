@@ -10,8 +10,8 @@
 #define JPPublicConstant_h
 
 //屏幕的宽高
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define JPGPU_SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define JPGPU_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
 #define JP_AUDIO_VOLUME (0.12f)
 

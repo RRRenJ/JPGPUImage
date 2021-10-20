@@ -586,7 +586,7 @@
         AVAsset *asset = self.compositon;
         NSParameterAssert(asset);
         AVAssetImageGenerator *assetImageGenerator =[[AVAssetImageGenerator alloc] initWithAsset:asset];
-        assetImageGenerator.maximumSize = CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH);
+        assetImageGenerator.maximumSize = CGSizeMake(JPGPU_SCREEN_WIDTH, JPGPU_SCREEN_WIDTH);
         CGImageRef thumbnailImageRef = NULL;
         NSError *thumbnailImageGenerationError = nil;
         thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:kCMTimeZero actualTime:NULL error:&thumbnailImageGenerationError];

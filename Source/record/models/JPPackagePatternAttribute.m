@@ -302,7 +302,7 @@
         _needUpdate = YES;
         _needUpdateFrame = YES;
         _transitionAnimation = JPPackagePatternTransitionAnimationTypeDefault;
-        _frame = CGRectMake(SCREEN_WIDTH / 4, SCREEN_WIDTH / 4, 100, 100);
+        _frame = CGRectMake(JPGPU_SCREEN_WIDTH / 4, JPGPU_SCREEN_WIDTH / 4, 100, 100);
         _textFontSize = 18;
         _isGlod = NO;
     }
@@ -385,7 +385,7 @@
 {
     UIImage *image = [self getImageForGifAtIndex:0];
     CGSize size = image.size;
-    CGFloat scale = SCREEN_WIDTH / 1080.0;
+    CGFloat scale = JPGPU_SCREEN_WIDTH / 1080.0;
     return CGSizeMake(size.width * scale, size.height * scale);
 }
 

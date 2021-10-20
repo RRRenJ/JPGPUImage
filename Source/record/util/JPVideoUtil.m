@@ -319,10 +319,10 @@
 
 
 + (NSString *)fileNameForDocumentAudio {
-    NSString *name = [NSString stringWithFormat:@"Documents/paike/Audio_%.0f.m4a",[[NSDate date] timeIntervalSince1970]];
+    NSString *name = [NSString stringWithFormat:@"Documents/JPSDK/Audio_%.0f.m4a",[[NSDate date] timeIntervalSince1970]];
     NSString *fullName = [NSHomeDirectory() stringByAppendingPathComponent:name];
     while ([[NSFileManager defaultManager] fileExistsAtPath:fullName]) {
-        name = [NSString stringWithFormat:@"Documents/paike/Audio_%.0f%u.m4a",[[NSDate date] timeIntervalSince1970], arc4random() % 100000];
+        name = [NSString stringWithFormat:@"Documents/JPSDK/Audio_%.0f%u.m4a",[[NSDate date] timeIntervalSince1970], arc4random() % 100000];
         fullName = [NSHomeDirectory() stringByAppendingPathComponent:name];
     }
     return name;
@@ -330,20 +330,20 @@
 
 + (NSString *)fileNameForDocumentImage
 {
-    NSString *name = [NSString stringWithFormat:@"Documents/paike/image_%.0f.png",[[NSDate date] timeIntervalSince1970]];
+    NSString *name = [NSString stringWithFormat:@"Documents/JPSDK/image_%.0f.png",[[NSDate date] timeIntervalSince1970]];
     NSString *fullName = [NSHomeDirectory() stringByAppendingPathComponent:name];
     while ([[NSFileManager defaultManager] fileExistsAtPath:fullName]) {
-        name = [NSString stringWithFormat:@"Documents/paike/image_%.0f%u.png",[[NSDate date] timeIntervalSince1970], arc4random() % 100000];
+        name = [NSString stringWithFormat:@"Documents/JPSDK/image_%.0f%u.png",[[NSDate date] timeIntervalSince1970], arc4random() % 100000];
         fullName = [NSHomeDirectory() stringByAppendingPathComponent:name];
     }
     return name;
 }
 
 + (NSString *)fileNameForDocumentMovie{
-    NSString *name = [NSString stringWithFormat:@"Documents/paike/Movie_%.0f.MOV",[[NSDate date] timeIntervalSince1970]];
+    NSString *name = [NSString stringWithFormat:@"Documents/JPSDK/Movie_%.0f.MOV",[[NSDate date] timeIntervalSince1970]];
     NSString *fullName = [NSHomeDirectory() stringByAppendingPathComponent:name];
     while ([[NSFileManager defaultManager] fileExistsAtPath:fullName]) {
-        name = [NSString stringWithFormat:@"Documents/paike/Movie_%.0f%u.MOV",[[NSDate date] timeIntervalSince1970], arc4random() % 100000];
+        name = [NSString stringWithFormat:@"Documents/JPSDK/Movie_%.0f%u.MOV",[[NSDate date] timeIntervalSince1970], arc4random() % 100000];
         fullName = [NSHomeDirectory() stringByAppendingPathComponent:name];
     }
     return name;
