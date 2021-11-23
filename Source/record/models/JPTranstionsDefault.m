@@ -8,7 +8,7 @@
 
 #import "JPTranstionsDefault.h"
 #import "GPUImageFilter.h"
-
+#import "JPPublicConstant.h"
 
 
 
@@ -42,8 +42,8 @@
 
 + (NSString *)programStrGetWithTranstionModel:(JPVideoTranstionsModel *)transtionsModel
 {
-    NSString *headerFile = [[NSBundle mainBundle] pathForResource:@"transtionHeader" ofType:@"glsl"];
-    NSString *contentFile = [[NSBundle mainBundle] pathForResource:transtionsModel.transtionGlslFileName ofType:@"glsl"];
+    NSString *headerFile = [JP_Resource_bundle pathForResource:@"transtionHeader" ofType:@"glsl"];
+    NSString *contentFile = [JP_Resource_bundle pathForResource:transtionsModel.transtionGlslFileName ofType:@"glsl"];
     NSString *headerStr = [NSString stringWithContentsOfFile:headerFile encoding:NSUTF8StringEncoding error:nil];
     NSString *contentStr = [NSString stringWithContentsOfFile:contentFile encoding:NSUTF8StringEncoding error:nil];
     
