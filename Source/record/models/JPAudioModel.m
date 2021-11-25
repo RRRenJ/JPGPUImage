@@ -33,6 +33,9 @@
 
 - (NSURL *)fileUrl
 {
+    if (_absoluteLocalPath) {
+        return [NSURL fileURLWithPath:_absoluteLocalPath];
+    }
     if (_baseFilePath) {
         if (_isBundle) {
             return [NSURL fileURLWithPath:[[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:_baseFilePath]];
@@ -52,6 +55,7 @@
     model.startTime = self.startTime;
     model.clipTimeRange = self.clipTimeRange;
     model.isBundle = self.isBundle;
+    model.absoluteLocalPath = self.absoluteLocalPath;
     model.baseFilePath = self.baseFilePath;
     model.sourceType = self.sourceType;
     model.theme = self.theme;
@@ -320,6 +324,9 @@
     if (_baseFilePath) {
         [dict setObject:_baseFilePath forKey:@"baseFilePath"];
     }
+    if (_absoluteLocalPath) {
+        [dict setObject:_absoluteLocalPath forKey:@"absoluteLocalPath"];
+    }
     [dict setObject:@(_isBundle) forKey:@"isBundle"];
     [dict setObject:@(_sourceType) forKey:@"sourceType"];
     if (_fileName) {
@@ -363,6 +370,7 @@
             _clipTimeRange = CMTimeRangeMake(CMTimeMake([clipTimeRanges[0] longLongValue], [clipTimeRanges[1] intValue]), CMTimeMake([clipTimeRanges[2] longLongValue], [clipTimeRanges[3] intValue]));
         }
     }
+    _absoluteLocalPath = [dict objectForKey:@"absoluteLocalPath"];
     _baseFilePath = [dict objectForKey:@"baseFilePath"];
     _isBundle = [[dict objectForKey:@"isBundle"] boolValue];
     _sourceType = [[dict objectForKey:@"sourceType"] integerValue];

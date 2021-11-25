@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger, JPAudioSourceType){
 @property (nonatomic, assign) CGFloat fileNameWidth;
 @property (nonatomic, strong) NSString *baseFilePath;
 
+@property (nonatomic, strong) NSString * absoluteLocalPath;
+
 - (NSURL *)fileUrl;
 - (UIImage *)selectedThumImg;
 - (UIImage *)unSelectedThumImg;
